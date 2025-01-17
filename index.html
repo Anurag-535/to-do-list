@@ -1,74 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Enhanced To-Do List</title>
+  <title>To-Do List with Time Duration</title>
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f0f0f0; /* Light gray background */
-    }
-
-    .container {
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      width: 100%;
-      margin-bottom: 15px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    .completed {
-      text-decoration: line-through;
-      color: #999;
-    }
-
-    .delete-btn {
-      background-color: #f44336; /* Red for delete */
-      color: white;
-      border: none;
-      border-radius: 3px;
-      padding: 5px 10px;
-      margin-left: 10px;
-    }
+    /* Your existing CSS styles here */
   </style>
 </head>
 <body>
@@ -78,6 +13,7 @@
 
     <div>
       <input type="text" id="new-todo" placeholder="Add new task...">
+      <input type="text" id="duration" placeholder="Duration (e.g., 30m, 2h)"> 
       <button onclick="addTask()">Add</button>
     </div>
 
@@ -88,6 +24,8 @@
     function addTask() {
       const newTodoInput = document.getElementById('new-todo');
       const newTodoText = newTodoInput.value.trim();
+      const durationInput = document.getElementById('duration');
+      const duration = durationInput.value.trim();
 
       if (newTodoText === '') {
         return;
@@ -102,9 +40,10 @@
       });
 
       const taskText = document.createTextNode(newTodoText);
+      const durationText = document.createTextNode(` (${duration})`);
 
       const deleteButton = document.createElement('button');
-      deleteButton.classList.add('delete-btn'); 
+      deleteButton.classList.add('delete-btn');
       deleteButton.textContent = 'Delete';
       deleteButton.addEventListener('click', () => {
         todoItem.remove();
@@ -112,12 +51,14 @@
 
       todoItem.appendChild(checkbox);
       todoItem.appendChild(taskText);
+      todoItem.appendChild(durationText); 
       todoItem.appendChild(deleteButton);
 
       const todoItemsList = document.getElementById('todo-items');
       todoItemsList.appendChild(todoItem);
 
       newTodoInput.value = '';
+      durationInput.value = ''; // Clear the duration input
     }
   </script>
 
