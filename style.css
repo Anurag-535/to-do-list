@@ -2,38 +2,32 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
 }
 
 .container {
-  background-color: #fff;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 300px; /* Set a maximum width for better responsiveness */
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 input[type="text"] {
+  width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  width: 100%;
-  margin-bottom: 15px;
 }
 
 button {
-  padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
+  padding: 10px 15px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -45,11 +39,12 @@ ul {
 }
 
 li {
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 .completed {
@@ -58,10 +53,11 @@ li {
 }
 
 .delete-btn {
+  margin-left: auto;
   background-color: #f44336;
   color: white;
+  padding: 5px 10px;
   border: none;
   border-radius: 3px;
-  padding: 5px 10px;
-  margin-left: 10px;
+  cursor: pointer;
 }
